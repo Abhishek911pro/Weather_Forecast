@@ -39,3 +39,19 @@
 .weatherIcon{
   font-size: 100px;
 }
+
+.weather{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weatherReport{
+  display:flex;
+  justify-content: end;
+  align-items: center;
+}
+
+h6{
+  margin-top: 15px;
+}
