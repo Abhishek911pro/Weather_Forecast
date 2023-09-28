@@ -3,10 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudBolt } from '@fortawesome/free-solid-svg-icons'
 import './components/Searchbar'
 import Searchbar from './components/Searchbar';
+import WeatherData from './components/WeatherData';
 import { data } from 'jquery';
 
 function App() {
  
+  const url =`https://api.openweathermap.org/data/2.5/weather?q=dallas&appid={8498078f2e97df6941e654441daa452d}`
+
   return (
     
     <div className=" container-fluid Body">
@@ -43,6 +46,7 @@ function App() {
           <div className='col-sm-8 '>
             <div className='row weatherReport mt-2'>
               <div className='col-sm-2'>
+                <WeatherData />
                 <h6>Min</h6>
                 <h6>Humidity</h6>
                 <h6>Sunrise</h6>
