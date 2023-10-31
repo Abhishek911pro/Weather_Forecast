@@ -5,7 +5,7 @@
   margin:0px;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center; 
   background-color: rgb(203, 235, 235);
 }
 
@@ -13,7 +13,7 @@
   border: 2px solid black;
   border-radius: 20px;
   height: 75vh;
-  width: 80%;
+  width: 70%;
   background-color: white;
 
 }
@@ -22,12 +22,20 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
+  border: 2px solid rgb(186, 225, 239);
+  border-radius: 20px 20px 5px 5px;
+  background: rgb(53,45,193);
+  background: linear-gradient(135deg, rgba(53,45,193,1) 13%, rgba(0,53,217,1) 34%, rgba(64,4,197,1) 53%, rgba(191,70,198,1) 100%);
 }
 
 .Appheader2{
   display:flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.Apptitle{
+  color:white;
 }
 
 .dateTime{
@@ -42,16 +50,23 @@
 
 .weather{
   display:flex;
-  justify-content: space-between;
+  justify-content: space-start;
   align-items: center;
 }
 
 .weatherReport{
+ 
   display:flex;
-  justify-content: end;
+  justify-content: space-around;
   align-items: center;
 }
 
-h6{
-  margin-top: 15px;
+.mainIcon{
+  height: 150px;
+  width:150px;
 }
+
+/* h6{
+  margin-top: 15px;
+} */
+
