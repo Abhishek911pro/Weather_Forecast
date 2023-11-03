@@ -92,7 +92,7 @@ function App() {
 
   return(
     <div className=" container-fluid Body">
-      <div className="Appbody p-3 shadow">
+      <div className="Appbody bgimage p-3 shadow">
         <div className='Appheader1 shadow'>
           <h1 className='Apptitle ms-3'>Weather Forecast</h1>
           <div className='searchbar me-3'>
@@ -105,28 +105,30 @@ function App() {
           </div> 
         </div>
         <hr />
-        <div className='Appheader2'>
-          <h2 className='ps-3'>{city.name}</h2>
+        <div className='Appheader2 '>
+          <h2 className='ps-3 Apptitle2'>{city.name}</h2>
             <div className='dateTime'>
-              <h5 className='pe-5'>{newTime}</h5>
-               <h5>{newdate}</h5>
+              <h5 className='pe-5 Apptitle2'>{newTime}</h5>
+               <h5 className='pe-3 Apptitle2'>{newdate}</h5>
             </div>
         </div>
         <hr />
         <div className='row'>
-          <div className='col-sm-4 '>
+          <div className='col-sm-4'>
             <div className='weather'>
               <img src={icon} alt="" className='mainIcon'/>
-              <div>
+              <div className='ms-4'>
                 {city.main ? <h1>{Math.trunc(city.main.temp)}&deg;Cel</h1> : <h1></h1>}
-              </div>
-            </div>
-            <div className='weatherType'>
-              {city.weather && city.weather.length > 0 ? (
+                {city.weather && city.weather.length > 0 ? (
                 <h1>{city.weather[0].main}</h1>
                 ) : (
                   <h1></h1>
               )}
+              </div>
+            </div>
+            
+            <div className='weatherType'>
+              
             </div>
           </div>
           <div className='col-sm-3 '></div>

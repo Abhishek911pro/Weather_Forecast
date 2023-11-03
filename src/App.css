@@ -7,7 +7,13 @@
   justify-content: center;
   align-items: center; 
   background-color: rgb(203, 235, 235);
+  background-color: white;
+  background-image: url("/src/components/Assets/bg3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 .Appbody{
   border: 2px solid black;
@@ -15,8 +21,12 @@
   height: 75vh;
   width: 70%;
   background-color: white;
-
+  background-image: url("/src/components/Assets/bg2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 .Appheader1{
   display:flex;
@@ -32,11 +42,18 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .Apptitle{
   color:white;
 }
+
+.Apptitle2{
+  font-weight: 900;
+}
+
+
 
 .dateTime{
   display:flex;
@@ -66,7 +83,5 @@
   width:150px;
 }
 
-/* h6{
-  margin-top: 15px;
-} */
+
 
