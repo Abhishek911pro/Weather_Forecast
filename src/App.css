@@ -27,9 +27,9 @@
 }
 
 .Appheader1{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display:flex;
+  justify-content: space-between; */
+  align-items: center; 
   border: 2px solid rgb(186, 225, 239);
   border-radius: 20px 20px 5px 5px;
   background: rgb(53,45,193);
@@ -39,14 +39,11 @@
 .Appheader2{
   display:flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
+  margin-top: 20px; 
 }
 
-.Apptitle{
-  color:white;
-}
-
-.Apptitle2{
+.Apptitle2 .datetitle {
   font-weight: 700;
 }
 
@@ -83,4 +80,29 @@
   border-radius: 10px;
   padding: 5px;
   
+}
+
+@media (max-width: 768px) {
+  .Appbody {
+    width: 90%; /* Set the width for small screens */
+    height: 95vh;
+  }
+
+  .Appheader1{
+    padding:5px;
+  }
+  
+  .dateTime{
+    display: flex;
+    flex-direction: column; /* Set to column to stack items vertically */
+    align-items: end;
+  }
+
+  .Apptitle2{
+    font-size: 40px;
+  }
+
+  .datetitle{
+    font-size: 15px;
+  }
 }

@@ -1,6 +1,6 @@
 import './App.css';
 import React,{ useState } from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faTemperatureHigh } from '@fortawesome/free-solid-svg-icons'
@@ -13,10 +13,6 @@ import cloud from './components/Assets/cloud.png'
 import drizzle from './components/Assets/drizzle.png'
 import rain from './components/Assets/rain.png'
 import snow from './components/Assets/snow.png'
-
-
-
-import { useEffect } from 'react';
 
 function App() {
 
@@ -35,7 +31,6 @@ function App() {
       {
         alert("city not found");
       }else{
-        console.log(data);
         setCity(data);
       }
 
@@ -95,88 +90,93 @@ function App() {
     
 
   return(
-    <div className=" container-fluid Body">
-      <div className="Appbody bgimage p-3 shadow">
-        <div className='Appheader1 shadow'>
-          <h1 className='Apptitle ms-3'>Weather Forecast</h1>
-          <div className='searchbar me-3'>
-            <input type="Search" className='rounded-pill border ps-3' placeholder='...City_name' onChange={ (event)=>{
-               setCity(event.target.value);
-            }}/>
-            <button className="rounded-circle ms-1 shadow" onClick={ () =>{
-              setSearch(city)
-              } }><FontAwesomeIcon icon={faSearch}/></button> 
-          </div> 
-        </div>
-        <hr />
-        <div className='Appheader2 '>
-          <h2 className='ps-3 Apptitle2'>{city.name}</h2>
-            <div className='dateTime'>
-              <h5 className='pe-5 Apptitle2'>{newTime == "Invalid Date" ? <h4></h4>: newTime}</h5>
-               <h5 className='pe-3 Apptitle2'>{newdate == "NaN-Invalid Date-NaN" ? <h4></h4>: newdate}</h5>
+    <div className=" container-fluid Body image-fluid">
+        <div className="Appbody bgimage p-3 shadow">
+          <div className='row Appheader1 shadow'>
+            <div className="col-md-6">
+              <h1 className='Apptitle ms-3 text-start text-white'>Weather Forecast</h1>
             </div>
-        </div>
-        <hr />
-        <div className='row'>
-          <div className='col-sm-4'>
-            <div className='weather'>
-              <img src={icon} alt="" className='mainIcon'/>
-              <div className='ms-4'>
-                {city.main ? <h1 className='fw-normal'>{Math.trunc(city.main.temp)}&deg;Cel</h1> : <h1></h1>}
-                {city.weather && city.weather.length > 0 ? (
-                <h1 className='fw-normal'>{city.weather[0].main}</h1>
-                ) : (
-                  <h1></h1>
-              )}
-              </div>
-            </div>
-            
-            <div className='weatherType'>
-              
+            <div className="col-md-6">
+              <div className='searchbar text-end me-3 '>
+                <input type="Search" className='rounded-pill border ps-3' placeholder='...City_name' onChange={ (event)=>{
+                  setCity(event.target.value);
+                }}/>
+                <button className="rounded-circle ms-1 shadow" onClick={ () =>{
+                  setSearch(city)
+                  } }><FontAwesomeIcon icon={faSearch}/></button> 
+              </div>   
             </div>
           </div>
-          <div className='col-sm-3 '></div>
-          <div className='col-sm-5 p-4'>
-              <div className=' row weatherReport mb-3'>
-                <div className='col-sm-4 boxes shadow'>
-                  <div>
-                    {city.main ? <h6 className='text-center fw-normal '>{Math.trunc(city.main.temp_min)}&deg;Cel</h6> : <h6></h6>}
-                    <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faTemperatureLow} /> min</h6>
-                  </div>
-                </div>
-                <div className='col-sm-4 '></div>
-                <div className='col-sm-4 boxes shadow'>
-                  <div>
-                    {city.main ? <h6 className='text-center fw-normal'>{Math.trunc(city.main.temp_max)}&deg;Cel</h6> : <h6></h6>}
-                    <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faTemperatureHigh} /> max</h6>
-                  </div>
-                </div>
-              </div>
-
-              <div className='row weatherReport'>
-                <div className='col-sm-4 boxes shadow'>
-                  <div>
-                    {city.main ? <h6 className='text-center fw-normal'>{city.main.humidity}%</h6> : <h6></h6>}
-                    <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faDroplet} /> Humidity</h6>
-                  </div>
-                </div>
-                <div className='col-sm-4 boxes shadow'>
-                  <div>
-                    {city.wind ? <h6 className='text-center fw-normal'>{Math.trunc((city.wind.speed)*18/5)}km/h</h6> : <h6></h6>}
-                    <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faWind} /> Windspeed</h6>
-                  </div>
-                </div>
-                <div className='col-sm-4 boxes shadow'>
-                  <div>
-                    {city.main ? <h6 className='text-center fw-normal'>{Math.trunc(city.main.feels_like)}&deg;Cel</h6> : <h6></h6>}
-                    <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faThermometer} /> Feels like</h6>
-                  </div>
-                </div>
-              </div>
+          <div className='row Appheader2 '>
+            <div className="col-sm-5">
+              <h2 className='Apptitle2'>{city.name}</h2>
+            </div>
+            <div className='col-sm-5 dateTime'>
+              <h5 className='datetitle'>{newTime == "Invalid Date" ? <p></p>: newTime}</h5>
+              <h5 className='datetitle'>{newdate == "NaN-Invalid Date-NaN" ? <p></p>: newdate}</h5>
+            </div>
           </div>
           <hr />
+          <div className='row'>
+            <div className='col-sm-4'>
+              <div className='weather'>
+                <img src={icon} alt="" className='mainIcon'/>
+                <div className='ms-4'>
+                  {city.main ? <h1 className='fw-normal'>{Math.trunc(city.main.temp)}&deg;Cel</h1> : <h1></h1>}
+                  {city.weather && city.weather.length > 0 ? (
+                  <h1 className='fw-normal'>{city.weather[0].main}</h1>
+                  ) : (
+                    <h1></h1>
+                )}
+                </div>
+              </div>
+              
+              <div className='weatherType'>
+                
+              </div>
+            </div>
+            <div className='col-sm-3 '></div>
+            <div className='col-sm-5 p-4'>
+                <div className=' row weatherReport mb-3'>
+                  <div className='col-sm-4 boxes shadow'>
+                    <div>
+                      {city.main ? <h6 className='text-center fw-normal '>{Math.trunc(city.main.temp_min)}&deg;Cel</h6> : <h6></h6>}
+                      <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faTemperatureLow} /> min</h6>
+                    </div>
+                  </div>
+                  <div className='col-sm-4 '></div>
+                  <div className='col-sm-4 boxes shadow'>
+                    <div>
+                      {city.main ? <h6 className='text-center fw-normal'>{Math.trunc(city.main.temp_max)}&deg;Cel</h6> : <h6></h6>}
+                      <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faTemperatureHigh} /> max</h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div className='row weatherReport'>
+                  <div className='col-sm-4 boxes shadow'>
+                    <div>
+                      {city.main ? <h6 className='text-center fw-normal'>{city.main.humidity}%</h6> : <h6></h6>}
+                      <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faDroplet} /> Humidity</h6>
+                    </div>
+                  </div>
+                  <div className='col-sm-4 boxes shadow'>
+                    <div>
+                      {city.wind ? <h6 className='text-center fw-normal'>{Math.trunc((city.wind.speed)*18/5)}km/h</h6> : <h6></h6>}
+                      <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faWind} /> Windspeed</h6>
+                    </div>
+                  </div>
+                  <div className='col-sm-4 boxes shadow'>
+                    <div>
+                      {city.main ? <h6 className='text-center fw-normal'>{Math.trunc(city.main.feels_like)}&deg;Cel</h6> : <h6></h6>}
+                      <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faThermometer} /> Feels like</h6>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <hr />
+          </div>
         </div>
-      </div>
     </div>
   )
 }
