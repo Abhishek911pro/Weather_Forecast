@@ -107,17 +107,17 @@ function App() {
               </div>   
             </div>
           </div>
-          <div className='row Appheader2 '>
-            <div className="col-sm-5">
+          <div className='row Appheader2 border-bottom border-dark'>
+            <div className="col-6 ">
               <h2 className='Apptitle2'>{city.name}</h2>
             </div>
-            <div className='col-sm-5 dateTime'>
+            <div className='col-6 dateTime '>
               <h5 className='datetitle'>{newTime == "Invalid Date" ? <p></p>: newTime}</h5>
               <h5 className='datetitle'>{newdate == "NaN-Invalid Date-NaN" ? <p></p>: newdate}</h5>
             </div>
           </div>
-          <hr />
-          <div className='row'>
+          <br/>
+          <div className='row mt-2 '>
             <div className='col-sm-4'>
               <div className='weather'>
                 <img src={icon} alt="" className='mainIcon'/>
@@ -131,21 +131,18 @@ function App() {
                 </div>
               </div>
               
-              <div className='weatherType'>
-                
-              </div>
             </div>
             <div className='col-sm-3 '></div>
             <div className='col-sm-5 p-4'>
                 <div className=' row weatherReport mb-3'>
-                  <div className='col-sm-4 boxes shadow'>
+                  <div className='col-4 boxes shadow'>
                     <div>
                       {city.main ? <h6 className='text-center fw-normal '>{Math.trunc(city.main.temp_min)}&deg;Cel</h6> : <h6></h6>}
                       <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faTemperatureLow} /> min</h6>
                     </div>
                   </div>
-                  <div className='col-sm-4 '></div>
-                  <div className='col-sm-4 boxes shadow'>
+                  <div className='col-4 '></div>
+                  <div className='col-4 boxes shadow'>
                     <div>
                       {city.main ? <h6 className='text-center fw-normal'>{Math.trunc(city.main.temp_max)}&deg;Cel</h6> : <h6></h6>}
                       <h6 className='text-center fw-normal'><FontAwesomeIcon icon={faTemperatureHigh} /> max</h6>
@@ -153,7 +150,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className='row weatherReport'>
+                <div className='row weatherReport '>
                   <div className='col-sm-4 boxes shadow'>
                     <div>
                       {city.main ? <h6 className='text-center fw-normal'>{city.main.humidity}%</h6> : <h6></h6>}
@@ -174,7 +171,6 @@ function App() {
                   </div>
                 </div>
             </div>
-            <hr />
           </div>
         </div>
     </div>
